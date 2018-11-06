@@ -1,0 +1,235 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>水循环与灾害研究团队</title>
+<link rel="stylesheet" href="css/style1.css" type="text/css" media="all"/>
+<script src="js/jquery-1.8.3.min.js"></script>
+<script type="text/javascript">
+//图片滚动 调用方法 imgscroll({speed: 30,amount: 1,dir: "up"});
+$.fn.imgscroll = function(o){
+	var defaults = {
+		speed: 40,
+		amount: 0,
+		width: 1,
+		dir: "left"
+	};
+	o = $.extend(defaults, o);
+	
+	return this.each(function(){
+		var _li = $("li", this);
+		_li.parent().parent().css({overflow: "hidden", position: "relative"}); //div
+		_li.parent().css({margin: "0", padding: "0", overflow: "hidden", position: "relative", "list-style": "none"}); //ul
+		_li.css({position: "relative", overflow: "hidden"}); //li
+		if(o.dir == "left") _li.css({float: "left"});
+		
+		//初始大小
+		var _li_size = 0;
+		for(var i=0; i<_li.size(); i++)
+			_li_size += o.dir == "left" ? _li.eq(i).outerWidth(true) : _li.eq(i).outerHeight(true);
+		
+		//循环所需要的元素
+		if(o.dir == "left") _li.parent().css({width: (_li_size*3)+"px"});
+		_li.parent().empty().append(_li.clone()).append(_li.clone()).append(_li.clone());
+		_li = $("li", this);
+
+		//滚动
+		var _li_scroll = 0;
+		function goto(){
+			_li_scroll += o.width;
+			if(_li_scroll > _li_size)
+			{
+				_li_scroll = 0;
+				_li.parent().css(o.dir == "left" ? { left : -_li_scroll } : { top : -_li_scroll });
+				_li_scroll += o.width;
+			}
+				_li.parent().animate(o.dir == "left" ? { left : -_li_scroll } : { top : -_li_scroll }, o.amount);
+		}
+		
+		//开始
+		var move = setInterval(function(){ goto(); }, o.speed);
+		_li.parent().hover(function(){
+			clearInterval(move);
+		},function(){
+			clearInterval(move);
+			move = setInterval(function(){ goto(); }, o.speed);
+		});
+	});
+};
+//友情链接下拉框跳转弹出新窗口
+function frlink(selObj){
+window.open(selObj.options[selObj.selectedIndex].value);}
+</script>
+</head>
+
+<body>
+<div id="hearder2" class="clearfix">
+	<div class="logo">
+   	  <img src="images/logo1.png">
+  </div>
+  <div class="logo-name">水循环与灾害研究团队</div>
+  <div class="form-tools">
+   	  <form id="search" name="search" method="post">
+      	<div class="search-box">
+        	<a href="index2.html" target="_blank"></a>
+        </div>
+        <div class="search-box">
+            <input type="text" name="textfield" id="textfield" class="input-text" placeholder="请输入搜索关键词">
+            <input type="image" src="images/search.png" class="input-submit" />
+        </div>
+  	  </form>
+    </div>
+</div>
+<div id="menu-box" class="clearfix">
+	<ul>
+    	<li><a href="index.html">首页</a></li>
+        <li><a href="detail1.html">团队简介</a></li>
+        <li><a href="list-text1.html">研究进展</a></li>
+        <li><a href="list-pic1.html">科研项目</a></li>
+        <li><a href="detail1.html">学术动态</a></li>
+        <li><a href="form1.html">数据资源</a></li>
+    </ul>
+</div>
+<div id="slider-box" style="background:url(images/slider1.jpg) center center;"></div>
+<!-- index1-div1 -->
+<div id="index1-div1" class="clearfix">
+	<div class="index1-left675">
+    	<div class="title-box">团队简介</a></div>
+        <p><img src="images/p-img.jpg" align="left">北京师范大学（Beijing Normal University）简称“北师大”，由中华人民共和国教育部直属，位列“211工程”、“985工程”，入选国家“双一流”、“珠峰计划”、“2011计划”、“111计划”、“卓越法律人才教育培养计划”、“国家建设高水平大学公派研究生项目”，设有研究生院，是一所以教师教育、教育科学和文理基础学科为主要特色的综合性全国重点大学...<a href="detail1.html">查看更多...</a></p>
+    </div>
+    <div class="index1-right300">
+    	<div class="title-box">研究进展<a href="list-text1.html" class="title-more" title="查看更多"><img src="images/12.gif"></a></div>
+          <ul>
+              <li><a href="detail1.html">研究进展研究进展研究进展研究进展研究进展研究进展研究进展研究进展</a><span>2017-02-23</span></li>
+              <li><a href="detail1.html">研究进展研究进展研究进展研究进展研究进展研究进展研究进展研究进展</a><span>2017-02-23</span></li>
+              <li><a href="detail1.html">研究进展研究进展研究进展研究进展研究进展研究进展研究进展研究进展</a><span>2017-02-23</span></li>
+              <li><a href="detail1.html">研究进展研究进展研究进展研究进展研究进展研究进展研究进展研究进展</a><span>2017-02-23</span></li>
+          </ul>
+    </div>
+</div>
+<!-- index1-div2 -->
+<div id="index1-div2" class="clearfix">
+	<div class="index1-left675">
+    	<div class="index1-li-box">
+    	<div class="index1-left330">
+        	<div class="title-box">学术动态<a href="list-text1.html" class="title-more" title="查看更多"><img src="images/12.gif"></a></div>
+            <img src="images/c1.jpg" style="width:330px; height:140px; margin:5px 0;">
+            <ul>
+                <li><a href="detail1.html">学术动态学术动态学术动态学术动态学术动态学术动态学术动态学术动态</a><span>2017-02-23</span></li>
+                <li><a href="detail1.html">学术动态学术动态学术动态学术动态学术动态学术动态学术动态学术动态</a><span>2017-02-23</span></li>
+                <li><a href="detail1.html">学术动态学术动态学术动态学术动态学术动态学术动态学术动态学术动态</a><span>2017-02-23</span></li>
+                <li><a href="detail1.html">学术动态学术动态学术动态学术动态学术动态学术动态学术动态学术动态</a><span>2017-02-23</span></li>
+                <li><a href="detail1.html">学术动态学术动态学术动态学术动态学术动态学术动态学术动态学术动态</a><span>2017-02-23</span></li>
+            </ul>
+        </div>
+        <div class="index1-right330">
+        	<div class="title-box">数据资源<a href="list-text1.html" class="title-more" title="查看更多"><img src="images/12.gif"></a></div>
+            <img src="images/c2.jpg" style="width:330px; height:140px; margin:5px 0;">
+            <ul>
+                <li><a href="detail1.html">数据资源数据资源数据资源数据资源数据资源数据资源数据资源数据资源</a><span>2017-02-23</span></li>
+                <li><a href="detail1.html">数据资源数据资源数据资源数据资源数据资源数据资源数据资源数据资源</a><span>2017-02-23</span></li>
+                <li><a href="detail1.html">数据资源数据资源数据资源数据资源数据资源数据资源数据资源数据资源</a><span>2017-02-23</span></li>
+                <li><a href="detail1.html">数据资源数据资源数据资源数据资源数据资源数据资源数据资源数据资源</a><span>2017-02-23</span></li>
+                <li><a href="detail1.html">数据资源数据资源数据资源数据资源数据资源数据资源数据资源数据资源</a><span>2017-02-23</span></li>
+            </ul>
+        </div>
+        </div>
+        <!-- slider -->
+        <div class="index1-pic-gun">
+        	
+            <div class="index1-scrollleft clearfix">
+                <ul>
+                    <li>
+                        <img alt="动态1" src="images/a1.jpg"/>
+                        <span>动态1</span>
+                    </li>
+                    <li>
+                        <img alt="动态2" src="images/a2.jpg"/>
+                        <span>动态2</span>
+                    </li>
+                    <li>
+                        <img alt="动态3" src="images/a3.jpg"/>
+                        <span>动态3</span>
+                    </li>
+                    <li>
+                       <img alt="动态4" src="images/a2.jpg"/>
+                        <span>动态4</span>
+                    </li>
+                </ul>
+            </div>
+            <script type="text/javascript">
+            $(document).ready(function(){
+            
+                $(".index1-scrollleft").imgscroll({
+                    speed: 40,    //图片滚动速度
+                    amount: 0,    //图片滚动过渡时间
+                    width: 1,     //图片滚动步数
+                    dir: "left"   // "left" 或 "up" 向左或向上滚动
+                });
+                
+            });
+            </script>
+        </div>
+        <!-- slider end -->
+    </div>
+    <div class="index1-right300">
+        <div class="index1-login-box">
+          <div class="title-box">管理员登录</div>
+          <form id="form1" name="form1" method="post">
+            <input type="text" name="textfield2" id="textfield2" placeholder="用户名" class="index1-uname">
+            <input type="password" name="password" id="password" placeholder="密码" class="index1-upass">
+            <div class="index1-t-link">
+                <input type="checkbox" name="checkbox" id="checkbox" class="index1-chek">记住密码
+                <a href="forgetpass.html" target="_blank">忘记密码？</a>
+            </div>
+            <input type="submit" name="submit" id="submit" value="登录" class="index1-input-login">
+            <input type="button" name="button" id="button" value="注册" class="index1-input-but" onClick="window.open('register.html')">
+          </form>
+        </div>
+		
+		<div class="index1-list-menu">
+        	<div class="title-box">招生信息</div>
+            <ul>
+                <li><a href="detail1.html">团队招生信息</a></li>
+                <li><a href="detail1.html">地理科学学部夏令营申请流程</a></li>
+                <li><a href="detail1.html">地理科学学部保研面试信息</a></li>
+                <li><a href="detail1.html">地理科学学部考研面试信息</a></li>
+            </ul>
+    	</div>
+		
+    </div>
+</div>
+<!-- div5 -->
+<div id="div5" class="clearfix">
+    <div class="link-box">
+    	<span>友情链接：</span>
+        <select onChange="frlink(this)" name="select" class="select-link">
+            <option selected>--- 教育类网站 ---</option>
+            <option value="http://www.veryhuo.com">烈火网</option>
+            <option value="http://www.sina.com.cn">新浪网</option>
+            <option value="http://www.163.com">网易</option>
+        </select>
+        <select onChange="frlink(this)" name="select" class="select-link">
+            <option selected>--- 政府类网站 ---</option>
+            <option value="http://www.china.com">中华网</option>
+            <option value="http://www.sina.com.cn">新浪网</option>
+            <option value="http://www.163.com">网易</option>
+        </select>
+        <select onChange="frlink(this)" name="select" class="select-link">
+            <option selected>--- 校园类网站 ---</option>
+            <option value="http://www.veryhuo.com">烈火网</option>
+            <option value="http://www.sina.com.cn">新浪网</option>
+            <option value="http://www.163.com">网易</option>
+        </select>
+        <select onChange="frlink(this)" name="select" class="select-link">
+            <option selected>--- 其它类网站 ---</option>
+            <option value="http://www.veryhuo.com">烈火网</option>
+            <option value="http://www.sina.com.cn">新浪网</option>
+            <option value="http://www.163.com">网易</option>
+        </select>
+    </div>
+</div>
+<div id="div6">Copyright &copy; 2018 水循环与灾害研究团队 All rights reserved.</a></div>
+</body>
+</html>
+
